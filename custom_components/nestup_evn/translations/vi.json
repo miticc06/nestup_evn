@@ -8,8 +8,8 @@
         "error": {
             "cannot_connect": "Không thể kết nối đến máy chủ EVN.",
             "invalid_auth": "Tài khoản EVN không hợp lệ. Xin kiểm tra lại Username và Password của bạn.",
-            "unknown": "Lỗi không xác định. Xin hãy report tới github@trvqhuy.",
-            "not_supported": "Khu vực của bạn chưa được hỗ trợ. Xin hãy liên hệ github@trvqhuy.",
+            "unknown": "Lỗi không xác định.",
+            "not_supported": "Khu vực của bạn chưa được hỗ trợ.",
             "error_ma_kh_deny": "Mã khách hàng không hợp lệ. Xin hãy kiểm tra và thử lại.",
             "no_monitor": "Đồng hồ của bạn không hỗ trợ ghi xa hàng ngày. Xin liên hệ với TTCSKH EVN và thử lại sau."
         },

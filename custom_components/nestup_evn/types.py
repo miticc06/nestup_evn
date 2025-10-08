@@ -96,7 +96,7 @@ VIETNAM_EVN_AREA = [
         evn_login_url="https://cskh.evnhcmc.vn/Dangnhap/checkLG",
         evn_data_url="https://cskh.evnhcmc.vn/Tracuu/ajax_dienNangTieuThuTheoNgay",
         evn_payment_url="https://cskh.evnhcmc.vn/Tracuu/kiemTraNo",
-        pattern=["PE"],
+        pattern=["PE", "PB0402"],
     ),
     Area(
         name=EVN_NAME.NPC,
@@ -122,7 +122,7 @@ VIETNAM_EVN_AREA = [
         evn_data_url="https://api.cskh.evnspc.vn/api/NghiepVu/LayThongTinSanLuongTheoNgay_v2",
         evn_payment_url="https://api.cskh.evnspc.vn/api/NghiepVu/TraCuuNoHoaDon",
         evn_loadshedding_url="https://api.cskh.evnspc.vn/api/NghiepVu/TraCuuLichNgungGiamCungCapDien",
-        pattern=["PB", "PK"],
+        pattern=["PB0901","PB0906", "PK"],
     ),
 ]
 
