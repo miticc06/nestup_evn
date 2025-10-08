@@ -11,7 +11,7 @@ import voluptuous as vol
 from homeassistant import config_entries
 from homeassistant.data_entry_flow import FlowResult
 
-from . import nestup_evn
+from . import nestup_evnnew
 from .const import (
     CONF_AREA,
     CONF_CUSTOMER_ID,
@@ -65,9 +65,9 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     async def _load_branches_data(self):
         """Load branches data asynchronously."""
         try:
-            file_path = os.path.join(os.path.dirname(nestup_evn.__file__), "evn_branches.json")
+            file_path = os.path.join(os.path.dirname(nestup_evnnew.__file__), "evn_branches.json")
             self._branches_data = await self.hass.async_add_executor_job(
-                nestup_evn.read_evn_branches_file, file_path
+                nestup_evnnew.read_evn_branches_file, file_path
             )
         except Exception as ex:
             _LOGGER.error("Error loading branches data: %s", str(ex))
@@ -84,7 +84,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         if user_input is not None:
 
             self._user_data.update(user_input)
-            self._api = nestup_evn.EVNAPI(self.hass, True)
+            self._api = nestup_evnnew.EVNAPI(self.hass, True)
 
             verify_account = await self._try_auth()
 
@@ -131,7 +131,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             await self._load_branches_data()
 
         # Get EVN info using the loaded branches data
-        evn_info = nestup_evn.get_evn_info_sync(
+        evn_info = nestup_evnnew.get_evn_info_sync(
             self._user_data[CONF_CUSTOMER_ID],
             self._branches_data
         )

@@ -19,7 +19,7 @@ from homeassistant.helpers.update_coordinator import (
     DataUpdateCoordinator,
 )
 
-from . import nestup_evn
+from . import nestup_evnnew
 from .const import (
     CONF_AREA,
     CONF_CUSTOMER_ID,
@@ -47,7 +47,7 @@ async def async_setup_entry(
 
     entry_config = hass.data[DOMAIN][entry.entry_id]
 
-    evn_api = nestup_evn.EVNAPI(hass, True)
+    evn_api = nestup_evnnew.EVNAPI(hass, True)
     evn_device = EVNDevice(entry_config, evn_api)
 
     await evn_device.async_create_coordinator(hass)
@@ -63,7 +63,7 @@ async def async_setup_entry(
 class EVNDevice:
     """EVN Device Instance"""
 
-    def __init__(self, dataset, api: nestup_evn.EVNAPI) -> None:
+    def __init__(self, dataset, api: nestup_evnnew.EVNAPI) -> None:
         """Construct Device wrapper."""
         self._name = f"{CONF_DEVICE_NAME}: {dataset[CONF_CUSTOMER_ID]}"
         self._coordinator: DataUpdateCoordinator = None
@@ -80,9 +80,9 @@ class EVNDevice:
     async def async_load_branches(self):
         """Load EVN branches data asynchronously"""
         try:
-            file_path = os.path.join(os.path.dirname(nestup_evn.__file__), "evn_branches.json")
+            file_path = os.path.join(os.path.dirname(nestup_evnnew.__file__), "evn_branches.json")
             self._branches_data = await self.hass.async_add_executor_job(
-                nestup_evn.read_evn_branches_file, file_path
+                nestup_evnnew.read_evn_branches_file, file_path
             )
         except Exception as ex:
             _LOGGER.error("Error loading branches data: %s", str(ex))
@@ -153,7 +153,7 @@ class EVNDevice:
     @property
     def info(self) -> DeviceInfo:
         """Return device description for device registry."""
-        evn_area = nestup_evn.get_evn_info_sync(self._customer_id, self._branches_data)
+        evn_area = nestup_evnnew.get_evn_info_sync(self._customer_id, self._branches_data)
         hw_version = f"by {self._area_name['name']}"
 
         if (evn_area["status"] == CONF_SUCCESS) and (
@@ -180,7 +180,7 @@ class EVNDevice:
         """Get branch info synchronously."""
         if self._branches_data is None:
             return {"status": CONF_ERR_UNKNOWN}
-        return nestup_evn.get_evn_info_sync(self._customer_id, self._branches_data)
+        return nestup_evnnew.get_evn_info_sync(self._customer_id, self._branches_data)
 
 
 class EVNSensor(CoordinatorEntity, SensorEntity):

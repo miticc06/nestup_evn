@@ -4,14 +4,14 @@
     ],
     "config_flow": true,
     "dependencies": [],
-    "documentation": "https://github.com/miticc06/nestup_evn/",
-    "domain": "nestup_evn",
+    "documentation": "https://github.com/miticc06/nestup_evnnew/",
+    "domain": "nestup_evnnew",
     "iot_class": "cloud_polling",
-    "issue_tracker": "https://github.com/miticc06/nestup_evn/issues",
-    "name": "EVN Data Fetcher",
+    "issue_tracker": "https://github.com/miticc06/nestup_evnnew/issues",
+    "name": "EVN New",
     "requirements": [
         "python_dateutil",
         "voluptuous"
     ],
-    "version": "2.4.2"
+    "version": "1.0.0"
 }
